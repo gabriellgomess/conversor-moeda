@@ -1,0 +1,57 @@
+.container-cotacao{
+    width: 20vw;
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--dark);
+}
+
+
+.select-currency, .date-price{
+    display: block;
+}
+.date-price:focus, .select-currency:focus{
+    border-color: var(--color);
+    box-shadow: 0 0 0 0.25rem rgb(var(--color) / 25%);
+}
+.container-response{
+    height: 40px;
+    display: flex;
+   
+}
+.icon-response{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    background: var(--dark);
+    border-radius: 7px 0 0 7px / 7px 0 0 7px ;
+    color: var(--light);
+    font-weight: bold;
+}
+.response{
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    width: 90%;
+    border-radius: 0 7px 7px 0 / 0 7px 7px 0 ;
+    border: 1px solid var(--dark);
+    color: var(--dark);
+    font-weight: bold;    
+}
+
+.legend-response{
+    background: var(--dark);
+    color: var(--light);
+    padding: 8px;
+    font-weight: bold;
+    border: 1px solid var(--dark);
+}
+
+.price-response{
+    border: 1px solid var(--dark);
+    width: 250px;
+    height: 30px;
+    padding-left: 20px;
+}

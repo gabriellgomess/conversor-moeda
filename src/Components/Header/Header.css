@@ -1,0 +1,42 @@
+.title{
+    font-family: "BenchNine";
+}
+.container-header{
+    display: flex;
+    flex-direction: column;
+}
+.lineUp-header{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100vw;
+    height: 15vh;
+    background: var(--dark);
+}
+.lineDown-header{
+    width: 100vw;
+    height: 5vh;
+    background: var(--color);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5); 
+	-webkit-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5); 
+	-moz-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+    margin-bottom: 35px; 
+}
+.logo-header{
+    color: var(--color);
+    font-family: "Varela";
+    font-size: 2rem;
+}
+.title-header{
+    color: var(--color);
+    font-family: "Varela";
+    font-size: 2rem;
+}
+.moreinfo-header{
+    color: var(--color);
+    font-family: "Varela";
+    font-size: 2rem;
+}
+.Logo{
+    width: 12vh;
+}
