@@ -8,7 +8,6 @@ const Cotacao = () => {
     const[date, setDate] = useState("")
     const[price, setPrice] = useState([])
     const[showPrice, setShowPrice] = useState(false)
-    const[dados, setDados] = useState([])
     
 
     useEffect(()=>{
@@ -29,7 +28,16 @@ const Cotacao = () => {
     const HandlePrice = () => {
        showPrice === false ? setShowPrice(true) : setShowPrice(false)
     }
-    console.log(price)
+    
+    const HandleCurrency = () => {
+       if(price.create_date !== undefined){
+        var d = (price.create_date).split(" ")
+        var d1 = d[0].split("-").reverse().join("/")
+        var d2 = d[1]
+        var datetime = d1 + " " + d2
+        return datetime
+       }
+    }
 
     return(
         <div className="container-cotacao">            
@@ -44,10 +52,17 @@ const Cotacao = () => {
             <label>Data da Cotação
                 <input className="date-price form-control" type="date" onChange={(e)=>setDate((e.target.value).replace(/[^0-9]/g, ''))} />
             </label>
-            {currency == "" || date == "" ? <button className="btn btn-outline-dark" onClick={()=>HandlePrice()}>Buscar Cotação</button> : <button className="btn btn-dark" onClick={()=>HandlePrice()}>Buscar Cotação</button>}            
+            {currency === "" || date === "" ? <button className="btn btn-outline-dark" onClick={()=>HandlePrice()}>Buscar Cotação</button> : <button className="btn btn-dark" onClick={()=>HandlePrice()}>Buscar Cotação</button>}            
             <button className="btn btn-outline-dark" onClick={()=>setPrice([])}>Limpar</button>            
             <div className="container-response">
                 <table>
+                    <thead>
+                        <tr>
+                            <th>DESCRIÇÃO</th>
+                            <th>RESULTADO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                     <tr>
                         <td className="legend-response">Moeda</td>
                         <td className="price-response">{price.code}</td>
@@ -77,9 +92,10 @@ const Cotacao = () => {
                         <td className="price-response">{price.low}</td>
                     </tr>
                     <tr>
-                        <td className="legend-response">Data</td>
-                        <td className="price-response">{price.timestamp}</td>
-                    </tr>                        
+                        <td className="legend-response">Atualizado em</td>
+                        <td className="price-response">{HandleCurrency()}</td>
+                    </tr>
+                    </tbody>                      
                 </table>
             </div>       
         </div>

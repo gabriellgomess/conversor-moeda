@@ -6,6 +6,21 @@
     justify-content: space-between;
     color: var(--dark);
 }
+@media only screen and (max-width: 770px) {
+    .container-cotacao{
+        width: 70vw;
+    }
+}
+@media only screen and (min-width: 770px) and (max-width: 1200px) {
+    .container-cotacao{
+        width: 50vw;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .container-cotacao{
+        width: 30vw;
+    }
+}
 
 
 .select-currency, .date-price{
@@ -18,6 +33,8 @@
 .container-response{
     height: 40px;
     display: flex;
+    justify-content: center;
+
    
 }
 .icon-response{

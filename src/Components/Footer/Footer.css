@@ -1,0 +1,17 @@
+.container-footer{
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 5vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: var(--color);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5); 
+	-webkit-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5); 
+	-moz-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);    
+}
+
+.container-footer > h4{
+    font-family: "Varela";
+}
