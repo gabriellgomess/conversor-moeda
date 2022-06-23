@@ -1,0 +1,15 @@
+.container-menu{
+    display: flex;
+    justify-content: space-evenly;
+    width: 50vw;
+    margin: 0 auto;
+}
+
+.line-none{
+    text-decoration: none;
+    color: var(--color);
+}
+
+.line-none:hover{
+    color: var(--dark);
+}
