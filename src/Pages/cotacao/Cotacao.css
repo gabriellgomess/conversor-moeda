@@ -1,10 +1,15 @@
 .container-cotacao{
-    width: 20vw;
+    width: 60vw;
     height: 35vh;
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
     color: var(--dark);
+}
+.container-input{
+    display: flex;
+    flex-direction: column;
+    width: 25vw;
+    justify-content: space-evenly;
 }
 @media only screen and (max-width: 770px) {
     .container-cotacao{
@@ -18,7 +23,7 @@
 }
 @media only screen and (min-width: 1200px) {
     .container-cotacao{
-        width: 30vw;
+        width: 50vw;
     }
 }
 
@@ -34,7 +39,7 @@
     height: 40px;
     display: flex;
     justify-content: center;
-
+    width: 25vw;
    
 }
 .icon-response{

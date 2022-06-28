@@ -7,9 +7,12 @@
 
 .line-none{
     text-decoration: none;
-    color: var(--color);
+    color: var(--dark);
+}
+.list-items>h4{
+    margin: 0;
 }
 
 .line-none:hover{
-    color: var(--dark);
+    color: var(--light);
 }

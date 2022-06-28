@@ -14,6 +14,9 @@
     background: var(--dark);
 }
 .lineDown-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
     height: 5vh;
     background: var(--color);
@@ -24,17 +27,17 @@
 }
 .logo-header{
     color: var(--color);
-    font-family: "Varela";
+    font-family: "Kufam";
     font-size: 2rem;
 }
 .title-header{
     color: var(--color);
-    font-family: "Varela";
+    font-family: "Kufam";
     font-size: 2rem;
 }
 .moreinfo-header{
     color: var(--color);
-    font-family: "Varela";
+    font-family: "Kufam";
     font-size: 2rem;
 }
 .Logo{

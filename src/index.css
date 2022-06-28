@@ -15,9 +15,14 @@
  
 }
 /* DEMAIS TEXTOS */
-@font-face {
+/* @font-face {
   font-family: 'Varela';
   src: local('Varela'), url(./Fonts/VarelaRound-Regular.ttf) format('truetype');
+ 
+} */
+@font-face {
+  font-family: 'Kufam';
+  src: local('Kufam'), url(./Fonts/Kufam-Regular.ttf) format('truetype');
  
 }
 

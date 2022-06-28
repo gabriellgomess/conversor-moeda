@@ -22,7 +22,8 @@ const Menu = () => {
                 <div className="list-items">
                         <h4>Detalhes do Contrato</h4>
                 </div>
-            </Link>                            
+            </Link>
+            <hr />                          
         </div>       
         
     )
