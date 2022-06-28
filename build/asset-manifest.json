@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "./static/css/main.4a6c1a0c.css",
-    "main.js": "./static/js/main.d1edd43c.js",
+    "main.js": "./static/js/main.ccf7c2c6.js",
     "static/js/787.8abc6ec8.chunk.js": "./static/js/787.8abc6ec8.chunk.js",
     "static/media/Kufam-Regular.ttf": "./static/media/Kufam-Regular.f2261f53a782d91d0b04.ttf",
     "static/media/BenchNine-Regular.ttf": "./static/media/BenchNine-Regular.ddf2c28222414b5d24e1.ttf",
     "static/media/internacional.png": "./static/media/internacional.d0a0af5a9ab89000c370.png",
     "index.html": "./index.html",
     "main.4a6c1a0c.css.map": "./static/css/main.4a6c1a0c.css.map",
-    "main.d1edd43c.js.map": "./static/js/main.d1edd43c.js.map",
+    "main.ccf7c2c6.js.map": "./static/js/main.ccf7c2c6.js.map",
     "787.8abc6ec8.chunk.js.map": "./static/js/787.8abc6ec8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4a6c1a0c.css",
-    "static/js/main.d1edd43c.js"
+    "static/js/main.ccf7c2c6.js"
   ]
 }
