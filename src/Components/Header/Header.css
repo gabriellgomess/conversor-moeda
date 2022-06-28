@@ -43,3 +43,9 @@
 .Logo{
     width: 12vh;
 }
+
+@media only screen and (max-width: 770px){
+    .Logo{
+        display: none;
+    }   
+}

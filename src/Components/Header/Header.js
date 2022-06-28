@@ -20,8 +20,7 @@ const Header = () => {
                 </div>
             </div>
             <div className="lineDown-header">
-                <Menu />
-                
+                <Menu />                
             </div>            
         </div>
     )

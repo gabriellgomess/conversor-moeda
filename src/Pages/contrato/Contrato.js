@@ -44,6 +44,7 @@ const Contrato = () => {
 
                 <div className="response-contrato">
                     <h5 className="response-contrato-title">.:SCI Internacional:.</h5>
+                    <hr/>
                     <p>{currency?`Valor do contrato: ${currency}`:""}</p>
                     <p>{date?`A data de início do contrato é ${HandleformatDate(date)}`:""}</p>
                     <p>{months?`O contrato terá duração de ${months} meses`:""}</p>
