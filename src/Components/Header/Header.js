@@ -16,7 +16,7 @@ const Header = () => {
                     Conversor de Moeda
                 </h3>
                 <div className="moreinfo-header">
-                    Mais informações
+                    
                 </div>
             </div>
             <div className="lineDown-header">
