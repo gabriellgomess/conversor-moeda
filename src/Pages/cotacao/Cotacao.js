@@ -1,13 +1,16 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useContext} from "react";
 import api from "../../Services/api";
 import "./Cotacao.css"
+import MyContext from "../../contexts/myContext";
+
 
 const Cotacao = () => {
 
     const[currency, setCurrency] = useState("")
     const[date, setDate] = useState("")
-    const[price, setPrice] = useState([])
-    const[showPrice, setShowPrice] = useState(false)    
+    const{price, setPrice} = useContext(MyContext)
+    const[showPrice, setShowPrice] = useState(false)
+    const{datetime, setDatetime} = useContext(MyContext)
 
     useEffect(()=>{
         async function loadPrice(){
@@ -33,14 +36,14 @@ const Cotacao = () => {
         var d = (price.create_date).split(" ")
         var d1 = d[0].split("-").reverse().join("/")
         var d2 = d[1]
-        var datetime = d1 + " " + d2
-        return datetime
+        var datetime1 = d1 + " " + d2
+        setDatetime(datetime1)
+        return datetime1
        }
     }
-
+    
     return(
         <div className="container-cotacao">            
-            
             <div className="container-input">
                 <label>Selecione a Moeda
                 <select className="select-currency form-control" onChange={(e)=>setCurrency(e.target.value)}>
@@ -99,7 +102,7 @@ const Cotacao = () => {
                     </tr>
                     </tbody>                      
                 </table>
-            </div>       
+            </div>      
         </div>
     )
 }

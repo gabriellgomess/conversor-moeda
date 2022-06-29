@@ -1,7 +1,7 @@
 .response-contrato{
     padding: 20px;
     width: 100%;
-    height: 200px;
+    min-height: 200px;
     margin-top: 20px;
     background: rgb(225, 225, 174);
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5); 
@@ -17,4 +17,13 @@
     .input-contrato{
         width: 90vw;
     }  
+}
+.header-response-contrato{
+    display: flex;
+    align-items: center;
+}
+.response-contrato-text{
+    font-size: 12px;
+    line-height: 1px;
+    margin-left: 80px;
 }

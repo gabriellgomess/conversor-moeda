@@ -1,7 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import "./Contrato.css"
 import { useState } from "react";
-import { formatToBRL} from 'brazilian-values';
+import { formatToNumber } from 'brazilian-values';
+import MyContext from "../../contexts/myContext";
+
+
 
 const Contrato = () => {
 
@@ -9,8 +12,11 @@ const Contrato = () => {
     const [date, setDate] = useState("");
     const [months, setMonths] = useState("");
 
+    const{price, setPrice} = useContext(MyContext);
+    const{datetime, setDatetime} = useContext(MyContext);
+
     const HandleCurrency = (e) => {
-        setCurrency(formatToBRL(e.target.value));
+        setCurrency(formatToNumber(e.target.value));
     }
 
     const HandleDate = (e) => {
@@ -21,19 +27,27 @@ const Contrato = () => {
         setMonths(e.target.value);
     }
 
-   const HandleformatDate = (input) => {
+    const HandleformatDate = (input) => {
         var datePart = input.match(/\d+/g),
         year = datePart[0].substring(2), // get only two digits
         month = datePart[1], day = datePart[2];      
         return day+'/'+month+'/'+year;
-      }
+    }
+
+    const HandleClear = () => {
+        setCurrency("");
+        setDate("");
+        setMonths("");        
+    }
+
+   
 
     return(
         <div className="container-contrato">
             <div className="form-group">
                 <h3>Contrato</h3>
                 <label>Valor do contrato
-                    <input className="form-control input-contrato" type="number" size="12" onChange={(e)=>HandleCurrency(e)}  />
+                    <input className="form-control input-contrato aqui" type="number" size="12" onChange={(e)=>HandleCurrency(e)}  />
                 </label>
                 <label>Data de início
                     <input className="form-control input-contrato" type="date" onChange={(e)=>HandleDate(e)} />   
@@ -43,12 +57,21 @@ const Contrato = () => {
                 </label>
 
                 <div className="response-contrato">
-                    <h5 className="response-contrato-title">.:SCI Internacional:.</h5>
+                    <div className="header-response-contrato">
+                        <h5 className="response-contrato-title">.:SCI Internacional:.</h5>
+                        <div>                            
+                            <p className="response-contrato-text">Moeda: {price.code}</p>
+                            <p className="response-contrato-text">Cotação: {price.bid}</p>
+                            <p className="response-contrato-text">Em: {datetime}</p>                         
+                        </div>
+                    </div>
+                    
                     <hr/>
-                    <p>{currency?`Valor do contrato: ${currency}`:""}</p>
+                    <p>{currency  === "" && price.code === ""?"Selecione uma moeda":`Valor do contrato: ${price.code} ${currency}`}</p>
                     <p>{date?`A data de início do contrato é ${HandleformatDate(date)}`:""}</p>
                     <p>{months?`O contrato terá duração de ${months} meses`:""}</p>
                 </div>
+                <button className="btn btn-secondary btn-sm" onClick={()=>HandleClear()}>Limpar</button>
                 
                 
 
