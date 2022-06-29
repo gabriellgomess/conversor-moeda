@@ -1,3 +1,6 @@
+h3{
+    color: var(--dark);
+}
 .response-contrato{
     padding: 20px;
     width: 100%;
@@ -26,4 +29,23 @@
     font-size: 12px;
     line-height: 1px;
     margin-left: 80px;
+}
+@media only screen and (max-width: 770px){
+    .container-form{
+        width: 90vw;
+    }
+    .header-response-contrato{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .container-contrato-text{
+        width: 100%;    
+    }
+    .response-contrato-text{
+        margin-left: 20px;
+    }
+    .response-text-contrato{
+        font-size: 12px;
+    }
 }

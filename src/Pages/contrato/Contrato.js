@@ -29,7 +29,7 @@ const Contrato = () => {
 
     const HandleformatDate = (input) => {
         var datePart = input.match(/\d+/g),
-        year = datePart[0].substring(2), // get only two digits
+        year = datePart[0].substring(2),
         month = datePart[1], day = datePart[2];      
         return day+'/'+month+'/'+year;
     }
@@ -37,14 +37,14 @@ const Contrato = () => {
     const HandleClear = () => {
         setCurrency("");
         setDate("");
-        setMonths("");        
-    }
-
-   
+        setMonths("");
+        setPrice("");
+        setDatetime("");      
+    }  
 
     return(
         <div className="container-contrato">
-            <div className="form-group">
+            <div className="form-group container-form">
                 <h3>Contrato</h3>
                 <label>Valor do contrato
                     <input className="form-control input-contrato aqui" type="number" size="12" onChange={(e)=>HandleCurrency(e)}  />
@@ -59,7 +59,7 @@ const Contrato = () => {
                 <div className="response-contrato">
                     <div className="header-response-contrato">
                         <h5 className="response-contrato-title">.:SCI Internacional:.</h5>
-                        <div>                            
+                        <div className="container-contrato-text">                            
                             <p className="response-contrato-text">Moeda: {price.code}</p>
                             <p className="response-contrato-text">Cotação: {price.bid}</p>
                             <p className="response-contrato-text">Em: {datetime}</p>                         
@@ -67,9 +67,9 @@ const Contrato = () => {
                     </div>
                     
                     <hr/>
-                    <p>{currency  === "" && price.code === ""?"Selecione uma moeda":`Valor do contrato: ${price.code} ${currency}`}</p>
-                    <p>{date?`A data de início do contrato é ${HandleformatDate(date)}`:""}</p>
-                    <p>{months?`O contrato terá duração de ${months} meses`:""}</p>
+                    <p className="response-text-contrato">{currency?price.code?`Valor do contrato: ${price.code} ${currency}`:"Selecione a moeda na página de cotação!":""}</p>
+                    <p className="response-text-contrato">{date?`A data de início do contrato é ${HandleformatDate(date)}`:""}</p>
+                    <p className="response-text-contrato">{months?`O contrato terá duração de ${months} meses`:""}</p>
                 </div>
                 <button className="btn btn-secondary btn-sm" onClick={()=>HandleClear()}>Limpar</button>
                 

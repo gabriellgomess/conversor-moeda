@@ -43,8 +43,9 @@ const Cotacao = () => {
     }
     
     return(
-        <div className="container-cotacao">            
+        <div className="container-cotacao">                 
             <div className="container-input">
+                <h3>Cotação</h3>  
                 <label>Selecione a Moeda
                 <select className="select-currency form-control" onChange={(e)=>setCurrency(e.target.value)}>
                     <option value="">Selecione</option>
