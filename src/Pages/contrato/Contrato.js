@@ -33,13 +33,13 @@ const Contrato = () => {
             <div className="form-group">
                 <h3>Contrato</h3>
                 <label>Valor do contrato
-                    <input className="form-control" type="number" size="12" onChange={(e)=>HandleCurrency(e)}  />
+                    <input className="form-control input-contrato" type="number" size="12" onChange={(e)=>HandleCurrency(e)}  />
                 </label>
                 <label>Data de início
-                    <input className="form-control" type="date" onChange={(e)=>HandleDate(e)} />   
+                    <input className="form-control input-contrato" type="date" onChange={(e)=>HandleDate(e)} />   
                 </label>
                 <label>Quantidade de meses
-                    <input className="form-control" type="number" size="2" onChange={(e)=>HandleMonths(e)} placeholder="Quant meses"  />
+                    <input className="form-control input-contrato" type="number" size="2" onChange={(e)=>HandleMonths(e)} placeholder="Quant meses"  />
                 </label>
 
                 <div className="response-contrato">

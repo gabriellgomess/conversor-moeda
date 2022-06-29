@@ -43,17 +43,17 @@ const Cotacao = () => {
             
             <div className="container-input">
                 <label>Selecione a Moeda
-            <select className="select-currency form-control" onChange={(e)=>setCurrency(e.target.value)}>
-                <option value="">Selecione</option>
-                <option value="USD">Dolar</option>
-                <option value="EUR">Euro</option>
-            </select>
-            </label>
-            <label>Data da Cotação
-                <input className="date-price form-control" type="date" onChange={(e)=>setDate((e.target.value).replace(/[^0-9]/g, ''))} />
-            </label>
-            {currency === "" || date === "" ? <button className="btn btn-outline-dark" onClick={()=>HandlePrice()}>Buscar Cotação</button> : <button className="btn btn-dark" onClick={()=>HandlePrice()}>Buscar Cotação</button>}            
-            <button className="btn btn-outline-dark" onClick={()=>setPrice([])}>Limpar</button>     
+                <select className="select-currency form-control" onChange={(e)=>setCurrency(e.target.value)}>
+                    <option value="">Selecione</option>
+                    <option value="USD">Dolar</option>
+                    <option value="EUR">Euro</option>
+                </select>
+                </label>
+                <label>Data da Cotação
+                    <input className="date-price form-control" type="date" onChange={(e)=>setDate((e.target.value).replace(/[^0-9]/g, ''))} />
+                </label>
+                {currency === "" || date === "" ? <button className="btn btn-outline-dark" onClick={()=>HandlePrice()}>Buscar Cotação</button> : <button className="btn btn-dark" onClick={()=>HandlePrice()}>Buscar Cotação</button>}            
+                <button className="btn btn-outline-dark" onClick={()=>setPrice([])}>Limpar</button>     
             </div>
                    
             <div className="container-response">

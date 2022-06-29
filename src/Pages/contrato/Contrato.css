@@ -13,3 +13,8 @@
 .response-contrato-title{
     font-weight: bold;
 }
+@media only screen and (max-width: 770px){
+    .input-contrato{
+        width: 90vw;
+    }  
+}
