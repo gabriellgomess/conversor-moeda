@@ -9,11 +9,14 @@ import Detalhes from './Pages/detalhes/Detalhes'
 import MyContext from './contexts/myContext';
 
 function App() {
-  const[price, setPrice] = useState([])
-  const[datetime, setDatetime] = useState("")
+  const [price, setPrice] = useState([])
+  const [datetime, setDatetime] = useState("")
+  const [currency, setCurrency] = useState("");
+  const [date, setDate] = useState("");
+  const [months, setMonths] = useState("");
   return (
     <div className="App">
-      <MyContext.Provider value={{price, setPrice, datetime, setDatetime}}>
+      <MyContext.Provider value={{price, setPrice, datetime, setDatetime, currency, setCurrency, date, setDate, months, setMonths}}>
         <Header />
         <div className='main'>        
           <Routes /><Routes>                

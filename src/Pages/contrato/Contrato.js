@@ -8,9 +8,9 @@ import MyContext from "../../contexts/myContext";
 
 const Contrato = () => {
 
-    const [currency, setCurrency] = useState("");
-    const [date, setDate] = useState("");
-    const [months, setMonths] = useState("");
+    const {currency, setCurrency} = useContext(MyContext);
+    const {date, setDate} = useContext(MyContext);
+    const {months, setMonths} = useContext(MyContext);
 
     const{price, setPrice} = useContext(MyContext);
     const{datetime, setDatetime} = useContext(MyContext);
