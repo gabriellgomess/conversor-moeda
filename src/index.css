@@ -29,3 +29,9 @@
 body{
   background: var(--light);
 }
+.btn-dark{
+  background: var(--dark);  
+}
+.btn-danger{
+  background: var(--color);
+}

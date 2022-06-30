@@ -16,6 +16,9 @@
 }
 .container-detalhes-left, .container-detalhes-center{
     border-right: 1px solid var(--dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 @media only screen and (max-width: 770px){

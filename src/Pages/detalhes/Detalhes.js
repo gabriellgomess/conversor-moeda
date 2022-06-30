@@ -3,6 +3,8 @@ import { useState } from "react";
 import { formatToNumber, formatToBRL } from 'brazilian-values';
 import MyContext from "../../contexts/myContext";
 import "./Detalhes.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFilePdf, faCalculator } from '@fortawesome/free-solid-svg-icons'
 
 
 const Detalhes = () => {
@@ -33,16 +35,21 @@ const Detalhes = () => {
             </div>
             <div className="container-detalhes-body">
                 <div className="container-detalhes-left">
-                    <p>Cotação: {price.bid}</p>
-                    <p>Valor do contrato: {price.code} {currency}</p>
-                    <p>Início: {date}</p>
-                    <p>Prazo: {months}</p>
-                    <p>Cotado em: {datetime}</p>
-                    <button className="btn btn-dark btn-sm" onClick={()=>HandleCalc()}>Calcular</button>
+                    <div>
+                       <p>Cotação: {price.bid}</p>
+                        <p>Valor do contrato: {price.code} {currency}</p>
+                        <p>Início: {date}</p>
+                        <p>Prazo: {months}</p>
+                        <p>Cotado em: {datetime}</p> 
+                    </div>                    
+                    <button className="btn btn-dark" onClick={()=>HandleCalc()}><FontAwesomeIcon icon={faCalculator} /> Calcular</button>
                 </div>
                 <div className="container-detalhes-center">
-                <p>Valor do contrato convertido: <br/>{formatToBRL(contratoReal)}</p>
-                <p>Salário mensal: <br/>{formatToBRL(salarioReal)}</p>
+                    <div>
+                        <p>Valor do contrato convertido: <br/>{formatToBRL(contratoReal)}</p>
+                        <p>Salário mensal: <br/>{formatToBRL(salarioReal)}</p>
+                    </div>
+                    <button className="btn btn-danger"><FontAwesomeIcon icon={faFilePdf} /> Gerar PDF</button>               
 
                 </div>
                 <div className="container-detalhes-right">
