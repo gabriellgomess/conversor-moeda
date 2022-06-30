@@ -28,4 +28,7 @@
         width: 100%;
         border: none;
     }
+    .container-detalhes-center{
+        margin-top: 30px;
+    }
 }

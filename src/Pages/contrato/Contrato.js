@@ -12,11 +12,14 @@ const Contrato = () => {
     const {date, setDate} = useContext(MyContext);
     const {months, setMonths} = useContext(MyContext);
 
-    const{price, setPrice} = useContext(MyContext);
-    const{datetime, setDatetime} = useContext(MyContext);
+    const {price, setPrice} = useContext(MyContext);
+    const {datetime, setDatetime} = useContext(MyContext);
+
+    const {currencyNoFormat, setCurrencyNoFormat} = useContext(MyContext);
 
     const HandleCurrency = (e) => {
         setCurrency(formatToNumber(e.target.value));
+        setCurrencyNoFormat(e.target.value);
     }
 
     const HandleDate = (e) => {

@@ -14,14 +14,22 @@ function App() {
   const [currency, setCurrency] = useState("");
   const [date, setDate] = useState("");
   const [months, setMonths] = useState("");
+  const [currencyNoFormat, setCurrencyNoFormat] = useState("");
   return (
     <div className="App">
-      <MyContext.Provider value={{price, setPrice, datetime, setDatetime, currency, setCurrency, date, setDate, months, setMonths}}>
+      <MyContext.Provider value={{
+                                  price, setPrice, 
+                                  datetime, setDatetime, 
+                                  currency, setCurrency, 
+                                  date, setDate, 
+                                  months, setMonths,
+                                  currencyNoFormat, setCurrencyNoFormat
+                                  }}>
         <Header />
         <div className='main'>        
           <Routes /><Routes>                
-              <Route exact path="/" element={<Cotacao/>} />
-              <Route path="/Cotacao" element={<Cotacao/>} />
+              <Route exact path="/" element={<Cotacao />} />
+              <Route path="/Cotacao" element={<Cotacao />} />
               <Route path="/Contrato" element={<Contrato />} />
               <Route path="/Detalhes" element={<Detalhes />} />                                 
           </Routes>

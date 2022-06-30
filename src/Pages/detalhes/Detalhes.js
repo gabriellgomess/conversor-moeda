@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import { useState } from "react";
-import { formatToNumber } from 'brazilian-values';
+import { formatToNumber, formatToBRL } from 'brazilian-values';
 import MyContext from "../../contexts/myContext";
 import "./Detalhes.css";
 
@@ -9,14 +9,21 @@ const Detalhes = () => {
     const {currency, setCurrency} = useContext(MyContext);
     const {date, setDate} = useContext(MyContext);
     const {months, setMonths} = useContext(MyContext);
-    const{price, setPrice} = useContext(MyContext);
-    const{datetime, setDatetime} = useContext(MyContext);
+    const {price, setPrice} = useContext(MyContext);
+    const {datetime, setDatetime} = useContext(MyContext);
 
-    const[contratoReal, setContratoReal] = useState("");
+    const [contratoReal, setContratoReal] = useState("");
+    const [salarioReal, setSalarioReal] = useState("");
+
+    const {currencyNoFormat, setCurrencyNoFormat} = useContext(MyContext);
 
     const HandleCalc = () => {
-        setContratoReal(parseFloat(currency)  * parseFloat(price.bid) ) 
+        setContratoReal((parseFloat(currencyNoFormat)  * parseFloat(price.bid)).toFixed(2));
+        setSalarioReal((parseFloat(contratoReal) / 12))     
+        
     }
+    
+    console.log(typeof(contratoReal))
 
     return (
         <div className="container-detalhes">
@@ -34,8 +41,8 @@ const Detalhes = () => {
                     <button className="btn btn-dark btn-sm" onClick={()=>HandleCalc()}>Calcular</button>
                 </div>
                 <div className="container-detalhes-center">
-                <p>Valor do contrato convertido em R$: {formatToNumber(contratoReal) }</p>
-                <p>Salário mensal:</p>
+                <p>Valor do contrato convertido: <br/>{formatToBRL(contratoReal)}</p>
+                <p>Salário mensal: <br/>{formatToBRL(salarioReal)}</p>
 
                 </div>
                 <div className="container-detalhes-right">
