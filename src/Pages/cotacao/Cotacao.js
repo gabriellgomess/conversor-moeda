@@ -12,19 +12,21 @@ const Cotacao = () => {
     const[showPrice, setShowPrice] = useState(false)
     const{datetime, setDatetime} = useContext(MyContext)
 
-    useEffect(()=>{
-        async function loadPrice(){
-            try{
-                const response = await api.get(`/${currency}/10?start_date=${date}&end_date=${date}`)             
-                setPrice(response.data[0])
-                
-                
-            }catch(error){
-                console.log("ERRO DA API: ", error)
-                
+    useEffect(() => {
+        if(currency !== "" && date !== ""){
+            async function loadPrice(){
+                try{
+                    const response = await api.get(`/${currency}/10?start_date=${date}&end_date=${date}`)             
+                    setPrice(response.data[0])
+                    
+                    
+                }catch(error){
+                    console.log("ERRO DA API: ", error)
+                    
+                }
             }
+        loadPrice()
         }
-       loadPrice()
     },[showPrice])
 
     const HandlePrice = () => {

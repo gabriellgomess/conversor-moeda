@@ -20,7 +20,9 @@
     flex-direction: column;
     justify-content: space-between;
 }
-
+.alert-1{
+    color: rgb(255, 30, 0);
+}
 @media only screen and (max-width: 770px){
     .container-detalhes-body{
         display: flex;

@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import { useState } from "react";
-import { formatToNumber, formatToBRL } from 'brazilian-values';
+import { formatToNumber, formatToBRL, formatToDate } from 'brazilian-values';
 import MyContext from "../../contexts/myContext";
 import "./Detalhes.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -24,9 +24,14 @@ const Detalhes = () => {
         setSalarioReal((parseFloat(contratoReal) / 12))     
         
     }
-    
-    console.log(typeof(contratoReal))
 
+    const HandleformatDate = (input) => {
+        var datePart = input.match(/\d+/g),
+        year = datePart[0].substring(2),
+        month = datePart[1], day = datePart[2];      
+        return day+'/'+month+'/'+year;
+    }
+   
     return (
         <div className="container-detalhes">
             <div className="container-detalhes-header">
@@ -38,7 +43,7 @@ const Detalhes = () => {
                     <div>
                        <p>Cotação: {price.bid}</p>
                         <p>Valor do contrato: {price.code} {currency}</p>
-                        <p>Início: {date}</p>
+                        <p>Início: {date?HandleformatDate(date):""}</p>
                         <p>Prazo: {months}</p>
                         <p>Cotado em: {datetime}</p> 
                     </div>                    
@@ -46,8 +51,8 @@ const Detalhes = () => {
                 </div>
                 <div className="container-detalhes-center">
                     <div>
-                        <p>Valor do contrato convertido: <br/>{formatToBRL(contratoReal)}</p>
-                        <p>Salário mensal: <br/>{formatToBRL(salarioReal)}</p>
+                        <p>Valor do contrato convertido: <br/>{isNaN(contratoReal)?<i><small className="alert-1">Verifique se todos os dados foram preenchidos!</small></i>:formatToBRL(contratoReal) }</p>
+                        <p>Salário mensal: <br/>{isNaN(salarioReal)?<i><small className="alert-1">Verifique se todos os dados foram preenchidos!</small></i>:formatToBRL(salarioReal)}</p>
                     </div>
                     <button className="btn btn-danger"><FontAwesomeIcon icon={faFilePdf} /> Gerar PDF</button>               
 

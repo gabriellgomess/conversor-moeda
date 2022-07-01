@@ -10,7 +10,7 @@ const Header = () => {
         <div className="container-header">
             <div className="lineUp-header">
                 <div className="logo-header">
-                    <img className="Logo" src={Logo} alt="Logo Internacional" />
+                    {/* <img className="Logo" src={Logo} alt="Logo Internacional" /> */}
                 </div>
                 <h3 className="title-header">
                     Conversor de Moeda

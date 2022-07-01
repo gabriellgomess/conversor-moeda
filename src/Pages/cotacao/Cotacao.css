@@ -14,10 +14,7 @@
 .select-currency, .date-price{
     display: block;
 }
-.date-price:focus, .select-currency:focus{
-    border-color: var(--color);
-    box-shadow: 0 0 0 0.25rem rgb(var(--color) / 25%);
-}
+
 .container-response{
     height: 40px;
     display: flex;
