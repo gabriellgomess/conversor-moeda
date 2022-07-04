@@ -23,6 +23,33 @@
 .alert-1{
     color: rgb(255, 30, 0);
 }
+.relatorio{
+    font-size: 12px;
+}
+.container-detalhes-right{
+    max-height: 300px;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+}
+.container-detalhes-right::-webkit-scrollbar{
+    width: 15px;    
+}
+.container-detalhes-right::-webkit-scrollbar-track{
+    background: var(--dark);
+    border-radius: 6px;
+}
+.container-detalhes-right::-webkit-scrollbar-thumb{
+    background: var(--color);
+    border-radius: 5px;
+}
+.table-detalhes{
+    width: 100%;
+}
+.celulas-detalhes{
+    width: 33%;
+    margin: 0 auto;
+}
 @media only screen and (max-width: 770px){
     .container-detalhes-body{
         display: flex;
