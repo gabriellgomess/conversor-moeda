@@ -19,13 +19,17 @@ const Detalhes = () => {
 
     const {currencyNoFormat, setCurrencyNoFormat} = useContext(MyContext);
 
-    const [parcelas, setParcelas] = useState([]);
+    const {parcelas, setParcelas} =useContext(MyContext);
 
   
 
     const HandleCalc = () => {
         setContratoReal((parseFloat(currencyNoFormat)  * parseFloat(price.bid)).toFixed(2));
-        setSalarioReal((parseFloat(contratoReal) / 12))     
+        if(months < 12) {
+            setSalarioReal((parseFloat(contratoReal) / months)) 
+        }else{
+            setSalarioReal((parseFloat(contratoReal) / 12))
+        }             
         
     }
 
@@ -97,7 +101,7 @@ const Detalhes = () => {
                        <p>Cotação: {price.bid}</p>
                         <p>Valor do contrato: {price.code} {currency}</p>
                         <p>Início: {date?HandleformatDate(date):""}</p>
-                        <p>Prazo: {months}</p>
+                        <p>Prazo: {months + " meses"}</p>
                         <p>Cotado em: {datetime}</p> 
                     </div>                    
                     <button className="btn btn-dark" onClick={()=>HandleCalc()}><FontAwesomeIcon icon={faCalculator} /> Calcular</button>
