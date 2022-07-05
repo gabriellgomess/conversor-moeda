@@ -50,6 +50,9 @@
     width: 33%;
     margin: 0 auto;
 }
+.no-info{
+    color: rgb(161, 161, 161);
+}
 @media only screen and (max-width: 770px){
     .container-detalhes-body{
         display: flex;

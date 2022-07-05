@@ -114,7 +114,8 @@ const Detalhes = () => {
                     <button className="btn btn-danger" onClick={()=> HandleOutPut(date, months, formatToBRL(salarioReal))}><FontAwesomeIcon icon={faList} /> Gerar Relatorio</button>               
 
                 </div>
-                <div className="container-detalhes-right"> 
+                <div className="container-detalhes-right">
+                    {parcelas.length > 0 ?
                             <table className="table-detalhes">
                                 <thead>
                                     <tr>
@@ -123,7 +124,7 @@ const Detalhes = () => {
                                         <th className="celulas-detalhes">Salário</th>                                        
                                     </tr>
                                 </thead>   
-                    {parcelas?.map(item=>{
+                    {parcelas.map(item=>{
                         return(                            
                             <tr key="">
                                 <td>{item.day < 10?"0"+item.day:item.day}/{item.month < 10?"0"+item.month:item.month}/{item.year}</td>
@@ -133,7 +134,8 @@ const Detalhes = () => {
                             )
                         }
                     )}
-                    </table> 
+                    </table>
+                    :<h1 className="no-info">Dados indisponíveis</h1>}
                 </div>
             </div>
           </div>
