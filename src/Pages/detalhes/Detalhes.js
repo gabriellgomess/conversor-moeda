@@ -14,8 +14,8 @@ const Detalhes = () => {
     const {price, setPrice} = useContext(MyContext);
     const {datetime, setDatetime} = useContext(MyContext);
 
-    const [contratoReal, setContratoReal] = useState("");
-    const [salarioReal, setSalarioReal] = useState("");
+    const {contratoReal, setContratoReal} = useContext(MyContext);
+    const {salarioReal, setSalarioReal} = useContext(MyContext);
 
     const {currencyNoFormat, setCurrencyNoFormat} = useContext(MyContext);
 
@@ -115,6 +115,7 @@ const Detalhes = () => {
 
                 </div>
                 <div className="container-detalhes-right">
+                    <div className="container-table-detalhes">
                     {parcelas.length > 0 ?
                             <table className="table-detalhes">
                                 <thead>
@@ -127,15 +128,18 @@ const Detalhes = () => {
                     {parcelas.map(item=>{
                         return(                            
                             <tr key="">
-                                <td>{item.day < 10?"0"+item.day:item.day}/{item.month < 10?"0"+item.month:item.month}/{item.year}</td>
-                                <td>{item.parcel}/{item.total}</td>
-                                <td>{item.value}</td>
+                                <td  className="celulas-detalhes-response">{item.day < 10?"0"+item.day:item.day}/{item.month < 10?"0"+item.month:item.month}/{item.year}</td>
+                                <td  className="celulas-detalhes-response">{item.parcel}/{item.total}</td>
+                                <td  className="celulas-detalhes-response">{item.value}</td>
                             </tr>                                                      
                             )
                         }
                     )}
                     </table>
                     :<h1 className="no-info">Dados indisponíveis</h1>}
+                    </div>
+                    
+                    <button className="btn btn-outline-danger" onClick=""><FontAwesomeIcon icon={faFilePdf} /> Gerar PDF</button> 
                 </div>
             </div>
           </div>

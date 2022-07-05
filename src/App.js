@@ -16,6 +16,8 @@ function App() {
   const [months, setMonths] = useState("");
   const [currencyNoFormat, setCurrencyNoFormat] = useState("");
   const [parcelas, setParcelas] = useState([]);
+  const [contratoReal, setContratoReal] = useState("");
+  const [salarioReal, setSalarioReal] = useState("");
   return (
     <div className="App">
       <MyContext.Provider value={{
@@ -25,7 +27,9 @@ function App() {
                                   date, setDate, 
                                   months, setMonths,
                                   currencyNoFormat, setCurrencyNoFormat,
-                                  parcelas, setParcelas
+                                  parcelas, setParcelas,
+                                  contratoReal, setContratoReal,
+                                  salarioReal, setSalarioReal
                                   }}>
         <Header />
         <div className='main'>        
