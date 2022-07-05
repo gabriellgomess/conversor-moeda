@@ -3,6 +3,8 @@ import "./Contrato.css"
 import { useState } from "react";
 import { formatToNumber } from 'brazilian-values';
 import MyContext from "../../contexts/myContext";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEraser } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -74,7 +76,7 @@ const Contrato = () => {
                     <p className="response-text-contrato">{date?`A data de início do contrato é ${HandleformatDate(date)}`:""}</p>
                     <p className="response-text-contrato">{months?`O contrato terá duração de ${months} meses`:""}</p>
                 </div>
-                <button className="btn btn-secondary btn-sm" onClick={()=>HandleClear()}>Limpar</button>
+                <button className="btn btn-dark" onClick={()=>HandleClear()}><FontAwesomeIcon icon={faEraser} /> Limpar</button>
                 
                 
 
