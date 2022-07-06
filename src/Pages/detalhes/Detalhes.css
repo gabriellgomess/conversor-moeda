@@ -79,3 +79,15 @@
         margin-top: 25px;
     }
 }
+
+@media print {
+    .container-detalhes-left, .container-detalhes-center, .btn-outline-danger {
+        display: none;
+    }
+    .container-table-detalhes{
+        display: block;
+        width: 500px;
+        height: 1000px;
+    }
+
+}

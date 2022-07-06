@@ -139,7 +139,7 @@ const Detalhes = () => {
                     :<h1 className="no-info">Dados indisponíveis</h1>}
                     </div>
                     
-                    <button className="btn btn-outline-danger" onClick=""><FontAwesomeIcon icon={faFilePdf} /> Gerar PDF</button> 
+                    <button className="btn btn-outline-danger" onClick={() => window.print()}><FontAwesomeIcon icon={faFilePdf} /> Gerar PDF</button> 
                 </div>
             </div>
           </div>
