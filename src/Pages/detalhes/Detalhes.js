@@ -4,7 +4,9 @@ import { formatToNumber, formatToBRL, formatToDate } from 'brazilian-values';
 import MyContext from "../../contexts/myContext";
 import "./Detalhes.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFilePdf, faCalculator, faList } from '@fortawesome/free-solid-svg-icons'
+import { faFilePdf, faCalculator, faList, faCircleInfo, faXmark } from '@fortawesome/free-solid-svg-icons'
+import {jsPDF} from 'jspdf';
+import html2canvas from 'html2canvas';
 
 
 const Detalhes = () => {
@@ -20,6 +22,7 @@ const Detalhes = () => {
     const {currencyNoFormat, setCurrencyNoFormat} = useContext(MyContext);
 
     const {parcelas, setParcelas} =useContext(MyContext);
+    const [modal, setModal] = useState(false);
 
   
 
@@ -86,7 +89,45 @@ const Detalhes = () => {
         }        
         
      } //Fim HandleOutPut
+     const gerarPDF = () => {
+        const htmlSource = document.getElementById('modal-table');
+        const filename = `Relatório de Contrato`;
         
+        if (!htmlSource) {
+          return;
+        }
+        
+        html2canvas(htmlSource).then(function (canvas) {
+          const imgData = canvas.toDataURL('image/png');
+          const imgWidth = 180;
+          const pageHeight = 200;
+        
+          const imgHeight = (canvas.height * imgWidth) / canvas.width;
+          let heightLeft = imgHeight;
+          let position = 5;
+          const pdf = new jsPDF('p', 'mm');
+        
+          pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
+          heightLeft -= pageHeight;
+        
+          while (heightLeft >= 0) {
+            position = heightLeft - imgHeight;
+            pdf.addPage();
+            pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
+            heightLeft -= pageHeight;
+          }
+          pdf.save(filename);
+        });
+      }
+    const HandleModal = (e) => {    
+        if(e === "0"){
+            setModal(true);
+        }else{
+            setModal(false);       
+        }
+    }
+            
+    
     
    
     return (
@@ -117,7 +158,7 @@ const Detalhes = () => {
                 <div className="container-detalhes-right">
                     <div className="container-table-detalhes">
                     {parcelas.length > 0 ?
-                            <table className="table-detalhes">
+                            <table id="table-response-contrato" className="table-detalhes">
                                 <thead>
                                     <tr>
                                         <th className="celulas-detalhes">Data</th>
@@ -139,9 +180,48 @@ const Detalhes = () => {
                     :<h1 className="no-info">Dados indisponíveis</h1>}
                     </div>
                     
-                    <button className="btn btn-outline-danger" onClick={() => window.print()}><FontAwesomeIcon icon={faFilePdf} /> Gerar PDF</button> 
+                    <button className="btn btn-outline-danger" onClick={()=>HandleModal(modal === true?"1":"0")}><FontAwesomeIcon icon={faCircleInfo} /> Gerar Relatório Detalhado</button> 
                 </div>
             </div>
+            {modal === true ?
+            <div className="modal">
+            <div className="modal-content">
+                <div className="modal-header">
+                    <h5 className="modal-title">Relatório Detalhado</h5>
+                    <div className="container-btn-modal">
+                        <button onClick={()=>gerarPDF()} className="btn btn-dark"><FontAwesomeIcon icon={faFilePdf} /> Gerar PDF</button>
+                        <button className="btn btn-danger" onClick={()=>HandleModal(modal === true?"1":"0")}><FontAwesomeIcon icon={faXmark} /></button>
+                    </div>
+                    
+                </div>
+                <div id="modal-table" className="modal-body">
+                    <div className="container-table-detalhes">
+                        <table className="table-detalhes">
+                            <thead>
+                                <tr>
+                                    <th className="celulas-detalhes">Data</th>
+                                    <th className="celulas-detalhes">Parcela</th>
+                                    <th className="celulas-detalhes">Salário</th>
+                                </tr>
+                            </thead>
+                            {parcelas.map(item=>{
+                                return(                            
+                                    <tr key="">
+                                        <td  className="celulas-detalhes-response">{item.day < 10?"0"+item.day:item.day}/{item.month < 10?"0"+item.month:item.month}/{item.year}</td>
+                                        <td  className="celulas-detalhes-response">{item.parcel}/{item.total}</td>
+                                        <td  className="celulas-detalhes-response">{item.value}</td>
+                                    </tr>                                                      
+                                    )
+                                }
+                            )}
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>:null}
+            
+            
           </div>
     )
 }
