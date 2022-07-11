@@ -24,15 +24,20 @@ const Detalhes = () => {
     const {parcelas, setParcelas} =useContext(MyContext);
     const [modal, setModal] = useState(false);
 
-  
-
-    const HandleCalc = () => {
-        setContratoReal((parseFloat(currencyNoFormat)  * parseFloat(price.bid)).toFixed(2));
-        if(months < 12) {
+    useEffect(() => {
+        if(months){
+          if(months < 12) {
             setSalarioReal((parseFloat(contratoReal) / months)) 
         }else{
             setSalarioReal((parseFloat(contratoReal) / 12))
-        }             
+        }  
+        }
+        
+    },[contratoReal])
+  
+
+    const HandleCalc = () => {
+        setContratoReal((parseFloat(currencyNoFormat)  * parseFloat(price.bid)).toFixed(2)>1?(parseFloat(currencyNoFormat)  * parseFloat(price.bid)).toFixed(2):"");                   
         
     }
 
