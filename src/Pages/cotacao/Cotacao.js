@@ -53,6 +53,7 @@ const Cotacao = () => {
                     <option value="">Selecione</option>
                     <option value="USD">Dolar</option>
                     <option value="EUR">Euro</option>
+                    <option value="ARS">Peso Argentino</option>
                 </select>
                 </label>
                 <label>Data da Cotação
